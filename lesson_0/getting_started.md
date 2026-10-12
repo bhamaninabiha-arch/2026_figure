@@ -3,9 +3,9 @@
 ## Objectives
 - Learn How to Setup a Github Account
 - Install Visual Studio Code
+- Install Conda
 - Install Git
 - Learn the Basics of Git
-- Install Conda/Mamba
 - Learn How to Configure a Conda Environment
 ---
 # Setting Up a Github Account
@@ -17,6 +17,10 @@
 2. Open Visual Studio Code and add the following extensions:
 - Python
 - Jupyter
+---
+# Installing Conda
+1. Install [Anaconda](https://repo.anaconda.com/archive/Anaconda3-2026.07-1-Windows-x86_64.exe), [Miniconda](-https://anaconda.com/api/installers/Miniconda3-latest-Windows-x86_64.exe?attr=ZGxzb3VyY2U9d3d3LmFuYWNvbmRhLmNvbSZ0aW1lc3RhbXA9MjAyNi0xMC0xMlQxMiUzQTIwJTNBNDBaJnV0bV9jYW1wYWlnbj1OVUxMJnV0bV9jb250ZW50PU5VTEwmdXRtX21lZGl1bT1hbmFjb25kYSZ1dG1fc291cmNlPWRpcmVjdCZ1dG1fdGVybT1OVUxM&sig=384f7b9589063516884aa01e98ea7f6c4078590a644aa935b8b7afa9dd324821--), or [Mamba](https://github.com/conda-forge/miniforge/releases/download/26.7.2-0/Miniforge3-26.7.2-0-Windows-x86_64.exe).
+ - Miniconda or Mamba are preferred over traditional Anaconda as they are smaller installations and tend to produce fewer bugs, and Mamba is substantially faster than the alternatives.
 ---
 # Installing Git
 1. Install Git for Windows at this [link](https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.2/Git-2.56.0.2-64-bit.exe).
