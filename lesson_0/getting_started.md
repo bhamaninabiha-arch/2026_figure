@@ -52,3 +52,9 @@ Git is the ubiquitous version control system for almost all software development
 8. Select to checkout Windows-style, commit Unix-style line endings
 9. Select the `Default` git pull behavior
 
+#### Setting up GitHub Authentication
+1. Open a Git Bash terminal anywhere.
+2. Run `winget install --id GitHub.cli --source winget`.
+  - You may need to install winget from the App Installer, if it's not already available on your system.
+  - This is installing the Github Credential Manager, allowing your local installation of Git to know what repositories you own on GitHub.
+3. Run `gh auth login` and walk through the interactive process to authenticate with GitHub.
