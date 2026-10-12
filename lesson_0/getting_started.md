@@ -63,6 +63,7 @@ Git is the ubiquitous version control system for almost all software development
 To get started with Git, you first need a repository. There are two primary ways to create one, depending on what exactly you'd like to do.
 1. `git init` This command creates a new, empty repository in your current working directory, perfect as a blank slate for a new project.
 2. `git clone <LINK_TO_REPOSITORY>` This command makes a copy of an existing repository with identical history, perfect as a starting point for collaboration, or for building on existing software.
+
 GitHub adds one additional option, called a "Fork" this is effectively a `git clone` that is automatically added to your GitHub account to make it easier to contribute your changes back to the original repository at a later time.
 
 For this project, we'll be working from a "Fork" of this repository as a starting point, and adding on to it with each lesson. You can make one by doing the following steps:
