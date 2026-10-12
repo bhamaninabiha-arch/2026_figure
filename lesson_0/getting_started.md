@@ -58,3 +58,36 @@ Git is the ubiquitous version control system for almost all software development
   - You may need to install winget from the App Installer, if it's not already available on your system.
   - This is installing the Github Credential Manager, allowing your local installation of Git to know what repositories you own on GitHub.
 3. Run `gh auth login` and walk through the interactive process to authenticate with GitHub.
+---
+### Gitting to the Basics with Conda Environments
+To get started with Git, you first need a repository. There are two primary ways to create one, depending on what exactly you'd like to do.
+1. `git init` This command creates a new, empty repository in your current working directory, perfect as a blank slate for a new project.
+2. `git clone <LINK_TO_REPOSITORY>` This command makes a copy of an existing repository with identical history, perfect as a starting point for collaboration, or for building on existing software.
+GitHub adds one additional option, called a "Fork" this is effectively a `git clone` that is automatically added to your GitHub account to make it easier to contribute your changes back to the original repository at a later time.
+
+For this project, we'll be working from a "Fork" of this repository as a starting point, and adding on to it with each lesson. You can make one by doing the following steps:
+1. Go to the [repository's home page](https://github.com/jbeale23/2026_figure) and at the top right, select the fork button and create a new fork with default settings.
+2. On your computer, navigate to where you would like your local copy of the repository, right click, and choose to "Open Git Bash here".
+  - This opens a terminal window in the directory you chose, where you can run commands by typing them and hitting "Enter".
+  - You can see what's in a directory by running `ls` and change directories by running `cd <DIRECTORY_NAME>`.
+3. In the Git Bash terminal, run `git clone https://github.com/YOUR_USERNAME/2026_figure.git`.
+  - This makes a local copy of your repository to which you'll make changes.
+4. Change into the `2026_figure/lesson_0` directory using `cd`.
+5. Run `cat demo_conda_environment.yaml`.
+  - `cat` is short for concatenate, and is a simple program that prints the contents of a file to the terminal. If you run it on multiple files, it will print their contents to the terminal in order. This is a very useful feature that can be employed in a lot of data analysis to quickly combine information from a pipeline.
+  - This is what's called a Conda environment file. It specifies the versions of software needed to create an environment, and is used to have a reproducible record of that software. Anytime you want to change what's in your environment, you should do so by updating this file.
+  - In the environment, you can specify a name (what the environment is called when you activate it), channels (where Conda will get software from), and dependencies (the pieces of software you want installed). These files use the YAML syntax, which you can find information on [here](https://yaml.org/) if you ever need help formatting one.
+  - Any package with a `==SOME_NUMBER` syntax is one for which we're specifying a particular version. In this case, we're only pinning the version of python, and letting Conda retrieve the newest version of every other package that is compatible with everything else in the environment.
+6. Run `conda env create --file demo_conda_environment.yaml`.
+  - This creates a new environment as specified in the environment file, and will likely take a few minutes to run, depending on your internet connection.
+7. Now, open the environment file in Visual Studio Code, as we'll be making a couple of changes to it.
+  - Under the dependencies, we'll want to add `ipykernel`. This package enables Jupyter notebook support, which we'll use for many of our later exercises.
+  - We'll also want to add `numpy>=2.0.0`, `scipy`, `polars`, `pyarrow`, `matplotlib`, and `seaborn`. These extend python's functionalities with a lot of useful mathematical, statistical, and plotting features, all of which are used frequently for data science.
+8. Save your changes to the environment file, and return to the Git Bash terminal.
+  - You can inspect the environment file with `cat` once again to see that your changes were made successfully.
+9. Update your Conda environment with `conda env update --prune --file demo_conda_environment.yaml`.
+  - This adds any new packages which you specified in the file to the environment, and removes any old ones which you removed from the file thanks to the `--prune` flag.
+10. Next, we'll commit our changes to GitHub.
+  - First, run `git add demo_conda_environment.yaml`. This stages the changes you've made to the specified file. You can view those changes with `git diff --cached [FILE_NAME]` to make sure you've only staged what you wanted to, and back out with `git restore --staged <FILE_NAME>` if you realize you've added something you didn't want to.
+  - Next, run `git commit`. This adds all of the changes you've staged as a commit to the history of your repository, alongside a description of the changes you've made. Best practice is to summarize the changes you've made briefly, and if you aren't able to do so in a sentence or two, you should likely consider breaking up the changes into smaller commits. You *can* undo a commit, but it's much harder, so be careful before committing.
+  - Finally, run `git push`. This pushes all of your committed changes to the remote copy of your repository, in this case hosted on GitHub. You can open your web browser and navigate to `https://github.com/YOUR_USER_NAME/2026_figure` to see your changes.
