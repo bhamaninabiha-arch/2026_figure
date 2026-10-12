@@ -1,4 +1,4 @@
-# Getting Started
+# Getting Started With Scientific Coding
 ---
 ## Objectives
 - Learn How to Setup a Github Account
