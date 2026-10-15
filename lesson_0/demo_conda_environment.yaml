@@ -11,4 +11,8 @@ dependencies:
   - pyarrow
   - matplotlib
   - seaborn
+  - pip
+  - pip:
+    - flippr
+    
 
